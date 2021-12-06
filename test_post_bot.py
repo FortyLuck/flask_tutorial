@@ -85,3 +85,6 @@ def test_format_text_message():
     }
 
     assert app.format_text_response(message) == expected_data
+
+def test_get_intent_name():
+    assert app.get_intent_name(BASE_DATA) == 'matched-intent-name'
