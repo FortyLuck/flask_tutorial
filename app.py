@@ -15,7 +15,9 @@ def hello_world():
 def bot():
     try:
         if request.json:
-            return format_text_response('{}: {}'.format(get_intent_name(request.json), get_query_text(request.json)))
+            return format_text_response('session_id:{}\n{}: {}'.format(get_session_id(request.json), 
+                get_intent_name(request.json),
+                get_query_text(request.json)))
     except:
         return format_text_response("Error happened")
 
@@ -57,6 +59,7 @@ def format_text_response(msg):
             }
         ]
     }
+
 
 def get_intent_name(data):
     try:
